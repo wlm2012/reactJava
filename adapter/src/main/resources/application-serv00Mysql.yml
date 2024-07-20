@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 20
+    url: ENC(OWxpEGKmPJTg7zAB6dL2SL8MfhMmDyFONSqeeOjImm17g5/zt91QDhynP8a25MhzgIgToN9TY8DOlwgcX2vmzOOBTVXxMSkAGjdp8QQSbGMmH7MFA7vgclKx55o0IXdmIaS4X/3OcXdEnQMx3cRrOA==)
+    username: ENC(64uDyGC6H9nI5l5d8hBWbfxEjJ0AAuECSqOhNX6UNbx2b2BnNpTaIjnpPQlmUZE5)
+    password: ENC(7LaO/hhh71fjUVSGMCIqbeBam2vTwYzXek2SEdFAoW7TXPSwuzxRqNzVdiKz9yXb)
+
+
+server:
+  port: 38012
+  tomcat:
+    threads:
+      max: 5
