@@ -1,4 +1,4 @@
-package com.study.reactJava.config;
+package com.study.reactJava.common.config;
 
 
 import org.apache.hc.client5.http.classic.HttpClient;

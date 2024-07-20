@@ -1,9 +1,9 @@
-package com.study.reactJava.config;
+package com.study.reactJava.common.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.study.reactJava.CommonDO.exception.ServiceException;
-import com.study.reactJava.CommonDO.resp.CommonPageResp;
-import com.study.reactJava.CommonDO.resp.CommonResp;
+import com.study.reactJava.common.CommonDO.exception.ServiceException;
+import com.study.reactJava.common.CommonDO.resp.CommonPageResp;
+import com.study.reactJava.common.CommonDO.resp.CommonResp;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

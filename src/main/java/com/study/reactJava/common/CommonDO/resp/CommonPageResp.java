@@ -1,4 +1,4 @@
-package com.study.reactJava.CommonDO.resp;
+package com.study.reactJava.common.CommonDO.resp;
 
 import lombok.Data;
 import org.springframework.data.domain.Page;

@@ -1,4 +1,4 @@
-package com.study.reactJava.CommonDO.exception;
+package com.study.reactJava.common.CommonDO.exception;
 
 public final class ServiceException extends RuntimeException {
 
