@@ -1,0 +1,36 @@
+spring:
+  threads:
+    virtual:
+      enabled: true
+  profiles:
+    active: test
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 1000
+  ai:
+    openai:
+      api-key: ENC(Ypr6kFFRWfH5ra+tAImRorORqshHWbJOpkdh8XSXQ+UyXoc7oI6c47S78EHt9Ve8vcCID4zPQaBLHzprutyO9xy0EJ6OjaHmomPdOVEC1oMdaw69/JwVzgJZaUYDJaik)
+      base-url: https://api.chatanywhere.com.cn
+
+server:
+  port: 9904
+
+
+jasypt:
+  encryptor:
+    # 加密的盐值，为了安全，该配置可以放在启动参数或者命令行参数中
+    password: fa7bd4edd42448aea8c9484fbce6e8cd
+    # 加密所采用的算法
+    algorithm: PBEWITHHMACSHA512ANDAES_256
+
+wenxin:
+  tokenUrl: https://aip.baidubce.com/oauth/2.0/token
+  apiKey: ENC(OG/6PE0XqkfqRKnTCVbimBcHhfJWmGs7gJvxX0mnL/nN4PcFoiK9jhm3y3phhmkJoaJ5k/x4HLR0lkCnTii6zA==)
+  secretKey: ENC(02QEmmLqfsc8IoY5glhMg13xVKLyvagGB3k2MZ3LRN9MRXTVJr4KIQjKCYsVXtc7XOpn4Gy2jowrdJ6xuqN7CHQ1g1WmDAHES8x8E9OBPI8=)
+  wenXinErnieSpeed128kUrl: https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/ernie-speed-128k
+  wenXinErnieSpeedUrl: https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/ernie_speed

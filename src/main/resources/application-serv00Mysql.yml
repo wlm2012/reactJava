@@ -3,7 +3,7 @@ spring:
     hikari:
       minimum-idle: 2
       maximum-pool-size: 20
-    url: ENC(OWxpEGKmPJTg7zAB6dL2SL8MfhMmDyFONSqeeOjImm17g5/zt91QDhynP8a25MhzgIgToN9TY8DOlwgcX2vmzOOBTVXxMSkAGjdp8QQSbGMmH7MFA7vgclKx55o0IXdmIaS4X/3OcXdEnQMx3cRrOA==)
+    url: ENC(lvab9QAxWpp9hiMSzyypGce2X4Fdl+bvyArLCGPEQql58mIJ9zlw5GFYNGX8+VM17AdSD/6aNUHBAGLf++VmDHsIwP83H1jEZXh1kUAh7Ap9hhqoLELVI8agQ7WbiLFvq0UsGV3pu5bi4nW21WcsGw==)
     username: ENC(64uDyGC6H9nI5l5d8hBWbfxEjJ0AAuECSqOhNX6UNbx2b2BnNpTaIjnpPQlmUZE5)
     password: ENC(7LaO/hhh71fjUVSGMCIqbeBam2vTwYzXek2SEdFAoW7TXPSwuzxRqNzVdiKz9yXb)
 

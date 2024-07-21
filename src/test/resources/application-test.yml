@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    hikari:
+      minimum-idle: 2
+      maximum-pool-size: 2
+    url: ENC(cmJl5b3ow7/frtlGGPaaqbRCf0OSZN9clXHNjfI7+1xmQ2H8rb/QvHaFM4wTduLl+xPivNEucureIEkA8O/m9Ydg2dN64q7IWQPPYf8GS8EgW3DCZUADHbjb6PvFLzkWyCq+mKKNvmlqXe7ryJ9MVA==)
+    username: ENC(1pCCP2UyfJPpcfyX6BcCa+kiJ6AP/l1Ao9oWhhhVg4rLBK9WECC4DvdjzYtfXevD)
+    password: ENC(vjloVF7ElCu1Pnmbugw79EeXGG8G5/qGPjvL6MZzpXzDjtRgFOIJc1Vi/1lkwk4T7vpErDTK/RbjjxdVlfl9qg==)
+    driver-class-name: com.mysql.cj.jdbc.Driver

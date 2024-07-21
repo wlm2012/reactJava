@@ -8,6 +8,7 @@ import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
 import org.apache.hc.core5.util.Timeout;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.client.ClientHttpRequestFactory;
 import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
@@ -45,7 +46,8 @@ public class RestTemplateConfig {
         return new RestTemplate(new OkHttp3ClientHttpRequestFactory(builder));
     }*/
 
-    @Bean
+    @Primary
+    @Bean("restTemplate")
     public RestTemplate httpRestTemplate() {
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
         connectionManager.setMaxTotal(HTTP_MAX_IDLE);
