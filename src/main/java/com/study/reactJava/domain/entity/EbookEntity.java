@@ -18,9 +18,8 @@ public class EbookEntity {
     @Id
     @Setter(AccessLevel.NONE)
     @Comment("主键")
-    @Column(name = "id", nullable = false)
-    @GeneratedValue(strategy = GenerationType.TABLE, generator = "id_gen")
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String id;
 
     @Comment("编号")
     @Column

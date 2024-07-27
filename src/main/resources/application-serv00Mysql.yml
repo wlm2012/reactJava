@@ -1,15 +1,18 @@
 spring:
+  main:
+    lazy-initialization: true
   datasource:
     hikari:
       minimum-idle: 2
-      maximum-pool-size: 20
+      maximum-pool-size: 10
     url: ENC(lvab9QAxWpp9hiMSzyypGce2X4Fdl+bvyArLCGPEQql58mIJ9zlw5GFYNGX8+VM17AdSD/6aNUHBAGLf++VmDHsIwP83H1jEZXh1kUAh7Ap9hhqoLELVI8agQ7WbiLFvq0UsGV3pu5bi4nW21WcsGw==)
     username: ENC(64uDyGC6H9nI5l5d8hBWbfxEjJ0AAuECSqOhNX6UNbx2b2BnNpTaIjnpPQlmUZE5)
     password: ENC(7LaO/hhh71fjUVSGMCIqbeBam2vTwYzXek2SEdFAoW7TXPSwuzxRqNzVdiKz9yXb)
-
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 server:
   port: 38012
   tomcat:
     threads:
       max: 5
+      min-spare: 5
