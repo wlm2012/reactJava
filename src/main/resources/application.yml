@@ -12,6 +12,9 @@ spring:
       hibernate:
         format_sql: true
         default_batch_fetch_size: 1000
+        jdbc:
+          #每批1000条提交
+          batch_size: 1000
     open-in-view: false
   ai:
     openai:
