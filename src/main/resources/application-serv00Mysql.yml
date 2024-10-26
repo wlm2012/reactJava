@@ -12,7 +12,7 @@ spring:
 
 server:
   port: 38012
-  tomcat:
-    threads:
-      max: 5
-      min-spare: 5
+#  tomcat:
+#    threads:
+#      max: 5
+#      min-spare: 5
