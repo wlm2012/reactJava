@@ -3,7 +3,7 @@ spring:
     virtual:
       enabled: true
   profiles:
-    active: mysql
+    active: mysqlPub
   jpa:
     show-sql: true
     hibernate:
