@@ -1,22 +1,12 @@
 package com.study.reactJava.common.config;
 
 
-import org.apache.hc.client5.http.classic.HttpClient;
-import org.apache.hc.client5.http.config.RequestConfig;
-import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
-import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
-import org.apache.hc.core5.util.Timeout;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.HttpComponentsClientHttpRequestFactory;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
-import org.springframework.web.client.RestTemplate;
+import java.net.http.HttpClient;
 
-import java.util.concurrent.TimeUnit;
-
-@Configuration
+/**
+ * 默认使用 {@link HttpClient} 不需要额外配置restTemplate，除非调整超时时间
+ */
+//@Configuration
 public class RestTemplateConfig {
 
 
@@ -27,13 +17,13 @@ public class RestTemplateConfig {
     private static final int HTTP_TIMEOUT =60;
     private static final int HTTP_CONNECTION_TIMEOUT = 30;
 
-    @Bean
+/*    @Bean
     public RestTemplate restTemplate() {
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
         requestFactory.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
         requestFactory.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
         return new RestTemplate(requestFactory);
-    }
+    }*/
 
 /*    @Bean
     public RestTemplate okhttpRestTemplate() {
@@ -46,7 +36,7 @@ public class RestTemplateConfig {
         return new RestTemplate(new OkHttp3ClientHttpRequestFactory(builder));
     }*/
 
-    @Primary
+/*    @Primary
     @Bean("restTemplate")
     public RestTemplate httpRestTemplate() {
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
@@ -66,5 +56,6 @@ public class RestTemplateConfig {
 
         ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
         return new RestTemplate(requestFactory);
-    }
+    }*/
+
 }
