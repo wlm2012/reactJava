@@ -1,6 +1,8 @@
 package com.study.reactJava.application.service.impl;
 
 
+import com.study.reactJava.application.dto.response.EbookVO;
+import com.study.reactJava.application.mapstruct.EbookMapper;
 import com.study.reactJava.domain.entity.EbookEntity;
 import com.study.reactJava.domain.repository.EbookRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,10 +22,11 @@ public class EbookServiceImpl {
 
     private final EbookRepository ebookRepository;
 
+    private final EbookMapper ebookMapper;
 
-    public List<EbookEntity> findByIds(List<Long> ids) {
 
-        return ebookRepository.findByIds(ids);
+    public List<EbookVO> findByIds(List<Long> ids) {
+        return ebookMapper.from(ebookRepository.findByIds(ids));
     }
 
     @Async

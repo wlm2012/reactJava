@@ -2,8 +2,8 @@ package com.study.reactJava.adapter.controller;
 
 
 import com.study.reactJava.application.dto.request.IdsReq;
+import com.study.reactJava.application.dto.response.EbookVO;
 import com.study.reactJava.application.service.impl.EbookServiceImpl;
-import com.study.reactJava.domain.entity.EbookEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +24,7 @@ public class EbookController {
     private final EbookServiceImpl ebookService;
 
     @GetMapping("/findByIds")
-    public List<EbookEntity> findByIds(IdsReq idsReq) {
+    public List<EbookVO> findByIds(IdsReq idsReq) {
         log.info("{}{}", Thread.currentThread().isVirtual(), Thread.currentThread().getName());
         log.info(Thread.currentThread().toString());
 
