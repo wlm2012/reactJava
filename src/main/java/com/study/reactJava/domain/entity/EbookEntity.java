@@ -1,6 +1,10 @@
 package com.study.reactJava.domain.entity;
 
-import jakarta.persistence.*;
+import com.study.reactJava.common.config.SnowflakeId;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 import org.hibernate.annotations.Comment;
 
@@ -16,9 +20,10 @@ import org.hibernate.annotations.Comment;
 public class EbookEntity {
 
     @Id
+    @SnowflakeId
     @Setter(AccessLevel.NONE)
     @Comment("主键")
-    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(length = 19)
     private String id;
 
     @Comment("编号")
