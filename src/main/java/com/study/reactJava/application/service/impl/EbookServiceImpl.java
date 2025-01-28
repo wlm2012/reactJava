@@ -22,14 +22,13 @@ public class EbookServiceImpl {
 
 
     public List<EbookEntity> findByIds(List<Long> ids) {
-        List<EbookEntity> ebookEntities = ebookRepository.likeBooks("ally Lehne");
-        System.out.println(ebookEntities.getFirst().getName());
+
         return ebookRepository.findByIds(ids);
     }
 
     @Async
     public void asyncFindByIds() {
-        log.info(Thread.currentThread().isVirtual() + Thread.currentThread().getName());
+        log.info("{}{}", Thread.currentThread().isVirtual(), Thread.currentThread().getName());
         log.info(Thread.currentThread().toString());
     }
 

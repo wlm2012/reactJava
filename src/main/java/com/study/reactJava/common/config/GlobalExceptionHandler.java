@@ -19,8 +19,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 
-
-
 @Slf4j
 @RestControllerAdvice
 @RequiredArgsConstructor
@@ -66,7 +64,7 @@ public class GlobalExceptionHandler implements ResponseBodyAdvice<Object> {
     public CommonResp<String> exception(Exception e, HttpServletRequest request) {
         String requestURI = request.getRequestURI();
         log.error("请求地址'{}',发生未知异常.", requestURI, e);
-        return CommonResp.fail(e.getMessage());
+        return CommonResp.fail("未知异常");
     }
 
 

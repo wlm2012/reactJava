@@ -1,7 +1,7 @@
 package com.study.reactJava.adapter.controller;
 
 
-import com.study.reactJava.application.dto.request.IdsRequest;
+import com.study.reactJava.application.dto.request.IdsReq;
 import com.study.reactJava.application.service.impl.EbookServiceImpl;
 import com.study.reactJava.domain.entity.EbookEntity;
 import lombok.RequiredArgsConstructor;
@@ -24,12 +24,12 @@ public class EbookController {
     private final EbookServiceImpl ebookService;
 
     @GetMapping("/findByIds")
-    public List<EbookEntity> findByIds(IdsRequest idsRequest) {
+    public List<EbookEntity> findByIds(IdsReq idsReq) {
         log.info("{}{}", Thread.currentThread().isVirtual(), Thread.currentThread().getName());
         log.info(Thread.currentThread().toString());
 
         ebookService.asyncFindByIds();
-        return ebookService.findByIds(idsRequest.ids());
+        return ebookService.findByIds(idsReq.ids());
     }
 
     @PostMapping("/addFakeData")
