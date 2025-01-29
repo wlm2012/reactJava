@@ -26,7 +26,7 @@ public class LoginInterceptor implements HandlerInterceptor {
             return true;
         }
         // 获取本次请求携带的token
-        String token = request.getHeader("token");
+        String token = request.getHeader("Authorization");
         //   如果没有token：直接返回响应结果
         if (!StringUtils.hasText(token)) {
             throw new ServiceException("请求失败，未登录");
