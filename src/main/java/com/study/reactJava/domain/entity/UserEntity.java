@@ -9,13 +9,12 @@ import lombok.*;
 import org.hibernate.annotations.Comment;
 
 @Entity
-@Table(name = "ebook")
-@Comment("电子书表")
-@Builder
+@Table(name = "user")
+@Comment("用户表")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EbookEntity {
+public class UserEntity {
 
     @Id
     @SnowflakeId
@@ -24,11 +23,11 @@ public class EbookEntity {
     @Column(length = 19)
     private String id;
 
-    @Comment("编号")
-    @Column
-    private String code;
+    @Column(length = 20)
+    @Comment("用户名")
+    private String username;
 
-    @Comment("书名")
-    private String name;
-
+    @Column(length = 64)
+    @Comment("密码")
+    private String password;
 }

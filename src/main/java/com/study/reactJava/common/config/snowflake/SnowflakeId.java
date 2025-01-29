@@ -1,4 +1,4 @@
-package com.study.reactJava.common.config;
+package com.study.reactJava.common.config.snowflake;
 
 import org.hibernate.annotations.IdGeneratorType;
 
