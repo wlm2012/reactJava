@@ -36,7 +36,7 @@ jwt:
   ttlMillis: 3600000
   secret: flF2DDxOouuhSCutjiQmoYRr6hURZ7JW3AteZe+eOaY=
 aes:
-  key: b8161a26812949708b6e9d650ff66e1c46e250fd61be6f5f4ae2467effadea73
+  key: pYjkkK9+2QMftH6pqja6SYZMHovyy6VgQWcFtkwCdaI=
   salt: 1
 #wenxin:
 #  tokenUrl: https://aip.baidubce.com/oauth/2.0/token

@@ -31,14 +31,14 @@ public class LoginServiceImpl {
     public String login(LoginReq loginReq) {
 
         String password = loginReq.password();
-        String encryptPassword = AESUtil.encrypt(password, aesKey, salt);
         UserEntity userEntity = userRepository.findByUsername(loginReq.username());
 
         if (userEntity == null) {
             throw new ServiceException("用户名不存在");
         }
+        String decrypt = AESUtil.decrypt(userEntity.getPassword(), aesKey, salt);
 
-        if (Objects.equals(userEntity.getPassword(), encryptPassword)) {
+        if (!Objects.equals(decrypt, password)) {
             throw new ServiceException("密码有误或用户名有误");
         }
 
