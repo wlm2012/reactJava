@@ -38,6 +38,9 @@ jwt:
 aes:
   key: pYjkkK9+2QMftH6pqja6SYZMHovyy6VgQWcFtkwCdaI=
   salt: 1
+
+ntfy:
+  url: https://ntfy.sh/f2408c7b-7166-418f-a9a2-c3bc8e8854b4
 #wenxin:
 #  tokenUrl: https://aip.baidubce.com/oauth/2.0/token
 #  apiKey: ENC(OG/6PE0XqkfqRKnTCVbimBcHhfJWmGs7gJvxX0mnL/nN4PcFoiK9jhm3y3phhmkJoaJ5k/x4HLR0lkCnTii6zA==)

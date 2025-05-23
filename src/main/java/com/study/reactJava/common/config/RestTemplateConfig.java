@@ -1,12 +1,17 @@
 package com.study.reactJava.common.config;
 
 
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.web.client.RestTemplate;
+
 import java.net.http.HttpClient;
 
 /**
  * 默认使用 {@link HttpClient} 不需要额外配置restTemplate，除非调整超时时间
  */
-//@Configuration
+@Configuration
 public class RestTemplateConfig {
 
 
@@ -17,13 +22,13 @@ public class RestTemplateConfig {
     private static final int HTTP_TIMEOUT =60;
     private static final int HTTP_CONNECTION_TIMEOUT = 30;
 
-/*    @Bean
+    @Bean
     public RestTemplate restTemplate() {
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
         requestFactory.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
         requestFactory.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
         return new RestTemplate(requestFactory);
-    }*/
+    }
 
 /*    @Bean
     public RestTemplate okhttpRestTemplate() {
