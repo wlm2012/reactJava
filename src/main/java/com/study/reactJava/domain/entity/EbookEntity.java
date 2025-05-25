@@ -22,7 +22,7 @@ public class EbookEntity {
     @Setter(AccessLevel.NONE)
     @Comment("主键")
     @Column(length = 19)
-    private String id;
+    private long id;
 
     @Comment("编号")
     @Column

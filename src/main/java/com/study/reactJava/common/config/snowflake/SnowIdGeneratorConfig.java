@@ -13,9 +13,9 @@ public class SnowIdGeneratorConfig implements BeforeExecutionGenerator {
 
 
     @Override
-    public String generate(SharedSessionContractImplementor session, Object owner, Object currentValue, EventType eventType) {
+    public long generate(SharedSessionContractImplementor session, Object owner, Object currentValue, EventType eventType) {
         Snowflake snowflake = IdUtil.getSnowflake(1, 1);
-        return String.valueOf(snowflake.nextId());
+        return snowflake.nextId();
     }
 
     @Override

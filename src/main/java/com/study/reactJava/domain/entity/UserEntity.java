@@ -21,7 +21,7 @@ public class UserEntity {
     @Setter(AccessLevel.NONE)
     @Comment("主键")
     @Column(length = 19)
-    private String id;
+    private long id;
 
     @Column(length = 20)
     @Comment("用户名")
