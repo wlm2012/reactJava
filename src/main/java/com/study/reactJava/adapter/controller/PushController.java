@@ -1,6 +1,7 @@
 package com.study.reactJava.adapter.controller;
 
 import com.study.reactJava.application.service.impl.CurrencyPushServiceImpl;
+import com.study.reactJava.application.service.impl.WeatherServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,8 +16,16 @@ public class PushController {
 
     private final CurrencyPushServiceImpl currencyPushService;
 
+    private final WeatherServiceImpl weatherService;
+
     @GetMapping("/pushCurrency")
     public void pushCurrency() {
         currencyPushService.pushCurrency();
     }
+
+    @GetMapping("/pushWeather")
+    public void pushWeather() {
+        weatherService.pushWeather();
+    }
+
 }

@@ -3,10 +3,16 @@ package com.study.reactJava.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.client.BufferingClientHttpRequestFactory;
+import org.springframework.http.client.ClientHttpRequestFactory;
+import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.http.HttpClient;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 默认使用 {@link HttpClient} 不需要额外配置restTemplate，除非调整超时时间
@@ -19,15 +25,26 @@ public class RestTemplateConfig {
     private static final int HTTP_KEEP_ALIVE = 20;
     private static final int HTTP_TIMEOUT_MILLISECONDS = 60_000;
 
-    private static final int HTTP_TIMEOUT =60;
+    private static final int HTTP_TIMEOUT = 60;
     private static final int HTTP_CONNECTION_TIMEOUT = 30;
 
     @Bean
     public RestTemplate restTemplate() {
+
+
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
         requestFactory.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
         requestFactory.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
-        return new RestTemplate(requestFactory);
+
+        ClientHttpRequestFactory factory = new BufferingClientHttpRequestFactory(requestFactory);
+        RestTemplate restTemplate = new RestTemplate(factory);
+        List<ClientHttpRequestInterceptor> interceptors = restTemplate.getInterceptors();
+        if (CollectionUtils.isEmpty(interceptors)) {
+            interceptors = new ArrayList<>();
+        }
+        interceptors.add(new LoggingInterceptor());
+        restTemplate.setInterceptors(interceptors);
+        return restTemplate;
     }
 
 /*    @Bean

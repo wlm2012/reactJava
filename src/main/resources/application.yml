@@ -41,6 +41,9 @@ aes:
 
 ntfy:
   url: https://ntfy.sh/f2408c7b-7166-418f-a9a2-c3bc8e8854b4
+
+amap:
+  key: f208e0ab95689d345fe2360a865f84b8
 #wenxin:
 #  tokenUrl: https://aip.baidubce.com/oauth/2.0/token
 #  apiKey: ENC(OG/6PE0XqkfqRKnTCVbimBcHhfJWmGs7gJvxX0mnL/nN4PcFoiK9jhm3y3phhmkJoaJ5k/x4HLR0lkCnTii6zA==)
