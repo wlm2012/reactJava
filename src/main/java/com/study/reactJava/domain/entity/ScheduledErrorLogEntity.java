@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "scheduled_error_log")
-@Comment("推送记录表")
+@Comment("推送失败记录表")
 @Data
 @Builder
 @NoArgsConstructor
@@ -24,7 +24,6 @@ public class ScheduledErrorLogEntity {
     @SnowflakeId
     @Setter(AccessLevel.NONE)
     @Comment("主键")
-    @Column(length = 19)
     private long id;
 
     @Column(length = 30)

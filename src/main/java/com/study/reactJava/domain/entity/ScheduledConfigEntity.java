@@ -20,7 +20,6 @@ public class ScheduledConfigEntity {
     @SnowflakeId
     @Setter(AccessLevel.NONE)
     @Comment("主键")
-    @Column(length = 19)
     private long id;
 
     @Column(length = 20)

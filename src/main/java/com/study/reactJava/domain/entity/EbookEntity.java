@@ -21,7 +21,6 @@ public class EbookEntity {
     @SnowflakeId
     @Setter(AccessLevel.NONE)
     @Comment("主键")
-    @Column(length = 19)
     private long id;
 
     @Comment("编号")
