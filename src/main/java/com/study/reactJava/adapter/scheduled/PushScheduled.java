@@ -18,7 +18,7 @@ import java.util.Map;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class PushScheduledServiceImpl {
+public class PushScheduled {
 
     private final Map<String, PushService> pushServiceMap;
 
