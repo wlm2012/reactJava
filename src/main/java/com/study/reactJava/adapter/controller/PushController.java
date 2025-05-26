@@ -20,12 +20,12 @@ public class PushController {
 
     @GetMapping("/pushCurrency")
     public void pushCurrency() {
-        currencyPushService.pushCurrency();
+        currencyPushService.push();
     }
 
     @GetMapping("/pushWeather")
     public void pushWeather() {
-        weatherService.pushWeather();
+        weatherService.push();
     }
 
 }

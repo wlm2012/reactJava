@@ -1,6 +1,7 @@
 package com.study.reactJava.application.service.impl;
 
 import com.study.reactJava.application.dto.dto.CurrencyDTO;
+import com.study.reactJava.application.service.PushService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,14 +14,15 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class CurrencyPushServiceImpl {
+public class CurrencyPushServiceImpl implements PushService {
 
     @Value("${ntfy.url}")
     private String ntfyUrl;
 
     private final RestTemplate restTemplate;
 
-    public void pushCurrency() {
+    @Override
+    public void push() {
 
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Title", "汇率");

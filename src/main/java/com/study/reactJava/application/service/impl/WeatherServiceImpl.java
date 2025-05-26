@@ -4,6 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import com.study.reactJava.application.dto.dto.CastsItem;
 import com.study.reactJava.application.dto.dto.ForecastsItem;
 import com.study.reactJava.application.dto.dto.WeatherDTO;
+import com.study.reactJava.application.service.PushService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,7 +21,7 @@ import java.util.Objects;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class WeatherServiceImpl {
+public class WeatherServiceImpl implements PushService {
 
     @Value("${amap.key}")
     private String apiKey;
@@ -30,7 +31,7 @@ public class WeatherServiceImpl {
 
     private final RestTemplate restTemplate;
 
-    public void pushWeather() {
+    public void push() {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add("Title", "天气");
         httpHeaders.add("Content-type", "application/json; charset=utf-8");

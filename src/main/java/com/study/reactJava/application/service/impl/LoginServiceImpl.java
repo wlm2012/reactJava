@@ -42,6 +42,6 @@ public class LoginServiceImpl {
             throw new ServiceException("密码有误或用户名有误");
         }
 
-        return jwtInfraUtil.createToken(userEntity.getId());
+        return jwtInfraUtil.createToken(String.valueOf(userEntity.getId()));
     }
 }
