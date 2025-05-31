@@ -1,4 +1,12 @@
 spring:
+  datasource:
+    hikari:
+      leak-detection-threshold: 60000
+      data-source-properties:
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        cachePrepStmts: true
+        useServerPrepStmts: true
   threads:
     virtual:
       enabled: true
@@ -10,6 +18,9 @@ spring:
       ddl-auto: validate
     properties:
       hibernate:
+        query:
+          optimizer:
+            enabled: true
         format_sql: true
         default_batch_fetch_size: 1000
         jdbc:
