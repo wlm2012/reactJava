@@ -63,7 +63,7 @@ public class PushScheduled {
         }
     }
 
-    @Scheduled(cron = "0 0/1 * * * ?")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void checkScheduledNotification() {
         schedulingTaskManageService.configNotification();
     }

@@ -3,14 +3,14 @@ package com.study.reactJava.domain.entity;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 
 
-@Builder
+@SuperBuilder
 @Data
 @MappedSuperclass
 @NoArgsConstructor

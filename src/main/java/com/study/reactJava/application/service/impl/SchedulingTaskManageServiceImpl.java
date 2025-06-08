@@ -2,7 +2,9 @@ package com.study.reactJava.application.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.map.MapUtil;
+import com.study.reactJava.domain.entity.ErrorLogEntity;
 import com.study.reactJava.domain.entity.ScheduledNotificationEntity;
+import com.study.reactJava.domain.repository.ErrorLogEntityRepository;
 import com.study.reactJava.domain.repository.ScheduledNotificationRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -16,10 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.time.LocalDateTime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.concurrent.ScheduledFuture;
 
 @Slf4j
@@ -32,6 +31,8 @@ public class SchedulingTaskManageServiceImpl {
     private final ScheduledNotificationRepository notificationRepository;
 
     private final RestTemplate restTemplate;
+
+    private final ErrorLogEntityRepository errorLogEntityRepository;
 
     @Value("${ntfy.url}")
     private String ntfyUrl;
@@ -101,7 +102,11 @@ public class SchedulingTaskManageServiceImpl {
                         ResponseEntity<String> stringResponseEntity = restTemplate.postForEntity(ntfyUrl, httpEntity, String.class);
                         log.info("收到：{}", stringResponseEntity.getBody());
                     } catch (Exception e) {
-                        log.error(e.getMessage());
+                        errorLogEntityRepository.save(ErrorLogEntity.builder()
+                                .event(String.valueOf(scheduledEntity.getId()))
+                                .errorContent(Arrays.toString(e.getStackTrace()))
+                                .build());
+                        log.error("推送失败", e);
                     }
                 }, scheduledEntity.getExpression());
             } else if (cacheMap.containsKey(scheduledEntity.getId())) {
