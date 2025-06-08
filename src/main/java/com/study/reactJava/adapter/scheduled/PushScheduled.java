@@ -2,21 +2,18 @@ package com.study.reactJava.adapter.scheduled;
 
 
 import com.study.reactJava.application.service.PushService;
-import com.study.reactJava.application.service.impl.CurrencyPushServiceImpl;
-import com.study.reactJava.application.service.impl.ScheduledErrorLogServiceImpl;
-import com.study.reactJava.application.service.impl.ScheduledServiceImpl;
-import com.study.reactJava.application.service.impl.WeatherServiceImpl;
+import com.study.reactJava.application.service.impl.*;
 import com.study.reactJava.domain.entity.ScheduledErrorLogEntity;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Map;
 
 @Slf4j
-@Service
+@Component
 @RequiredArgsConstructor
 public class PushScheduled {
 
@@ -29,6 +26,8 @@ public class PushScheduled {
     private final ScheduledServiceImpl scheduledService;
 
     private final ScheduledErrorLogServiceImpl scheduledErrorLogService;
+
+    private final SchedulingTaskManageServiceImpl schedulingTaskManageService;
 
 
     @Scheduled(cron = "0 0 9 * * ? ")
@@ -51,16 +50,22 @@ public class PushScheduled {
         }
     }
 
-    @Scheduled(cron = "0 0/5 * * * ? ")
+    @Scheduled(cron = "0 0/5 * * * ?")
     public void pushAgain() {
         List<ScheduledErrorLogEntity> scheduledErrorLogEntityList = scheduledService.queryErrorLog();
         for (ScheduledErrorLogEntity scheduledErrorLogEntity : scheduledErrorLogEntityList) {
             try {
                 pushServiceMap.get(scheduledErrorLogEntity.getEvent()).push();
                 scheduledErrorLogService.successLog(scheduledErrorLogEntity);
-            }catch (Exception e) {
+            } catch (Exception e) {
                 scheduledErrorLogService.plusPushTime(scheduledErrorLogEntity);
             }
         }
     }
+
+    @Scheduled(cron = "0 0/1 * * * ?")
+    public void checkScheduledNotification() {
+        schedulingTaskManageService.configNotification();
+    }
+
 }
