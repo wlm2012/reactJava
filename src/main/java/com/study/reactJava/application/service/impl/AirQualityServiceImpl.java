@@ -123,7 +123,7 @@ public class AirQualityServiceImpl {
                             温度：%s
                             %s
                             """;
-                    m = String.format(m, hourlyItem.fxTime(), hourlyItem.temp(), hourlyItem.text());
+                    m = String.format(m, hourlyItem.fxTime().toLocalTime(), hourlyItem.temp(), hourlyItem.text());
                     message += m;
                 }
             }
