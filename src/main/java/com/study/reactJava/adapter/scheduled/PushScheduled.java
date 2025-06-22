@@ -29,6 +29,8 @@ public class PushScheduled {
 
     private final SchedulingTaskManageServiceImpl schedulingTaskManageService;
 
+    private final AirQualityServiceImpl airQualityService;
+
 
     @Scheduled(cron = "0 0 9 * * ? ")
     public void pushCurrency() {
@@ -44,6 +46,7 @@ public class PushScheduled {
     public void pushWeather() {
         try {
             weatherService.push();
+            airQualityService.pushWeather();
         } catch (Exception e) {
             log.error("错误", e);
             scheduledErrorLogService.saveErrorLog(pushServiceMap, weatherService);
@@ -66,6 +69,12 @@ public class PushScheduled {
     @Scheduled(cron = "0 0/5 * * * ?")
     public void checkScheduledNotification() {
         schedulingTaskManageService.configNotification();
+    }
+
+
+    @Scheduled(cron = "0 5 8,17,20 * * ?")
+    public void airQualityPush() {
+        airQualityService.pushAirQuality();
     }
 
 }

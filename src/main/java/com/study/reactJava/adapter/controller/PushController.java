@@ -1,5 +1,6 @@
 package com.study.reactJava.adapter.controller;
 
+import com.study.reactJava.application.service.impl.AirQualityServiceImpl;
 import com.study.reactJava.application.service.impl.CurrencyPushServiceImpl;
 import com.study.reactJava.application.service.impl.SchedulingTaskManageServiceImpl;
 import com.study.reactJava.application.service.impl.WeatherServiceImpl;
@@ -22,6 +23,8 @@ public class PushController {
 
     private final SchedulingTaskManageServiceImpl schedulingTaskManageService;
 
+    private final AirQualityServiceImpl airQualityService;
+
     @GetMapping("/pushCurrency")
     public void pushCurrency() {
         currencyPushService.push();
@@ -35,6 +38,16 @@ public class PushController {
     @PostMapping("/creatTask")
     public void createTask() {
 //        schedulingTaskManageService.createSchedulingTask();
+    }
+
+    @GetMapping("/getAirquality")
+    public void getAirquality() {
+        airQualityService.pushAirQuality();
+    }
+
+    @GetMapping("/pushWeather1")
+    public void pushWeather1() {
+        airQualityService.pushWeather();
     }
 
 

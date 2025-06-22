@@ -1,18 +1,21 @@
 package com.study.reactJava.common.config;
 
 
+import org.apache.hc.client5.http.config.RequestConfig;
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
+import org.apache.hc.client5.http.impl.classic.HttpClientBuilder;
+import org.apache.hc.client5.http.impl.io.PoolingHttpClientConnectionManager;
+import org.apache.hc.core5.util.Timeout;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.client.BufferingClientHttpRequestFactory;
-import org.springframework.http.client.ClientHttpRequestFactory;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.SimpleClientHttpRequestFactory;
+import org.springframework.http.client.*;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.http.HttpClient;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 默认使用 {@link HttpClient} 不需要额外配置restTemplate，除非调整超时时间
@@ -35,6 +38,7 @@ public class RestTemplateConfig {
         SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
         requestFactory.setReadTimeout(HTTP_TIMEOUT_MILLISECONDS);
         requestFactory.setConnectTimeout(HTTP_TIMEOUT_MILLISECONDS);
+//        requestFactory.
 
         ClientHttpRequestFactory factory = new BufferingClientHttpRequestFactory(requestFactory);
         RestTemplate restTemplate = new RestTemplate(factory);
@@ -58,8 +62,8 @@ public class RestTemplateConfig {
         return new RestTemplate(new OkHttp3ClientHttpRequestFactory(builder));
     }*/
 
-/*    @Primary
-    @Bean("restTemplate")
+
+    @Bean
     public RestTemplate httpRestTemplate() {
         PoolingHttpClientConnectionManager connectionManager = new PoolingHttpClientConnectionManager();
         connectionManager.setMaxTotal(HTTP_MAX_IDLE);
@@ -71,13 +75,14 @@ public class RestTemplateConfig {
                 .setResponseTimeout(Timeout.of(HTTP_TIMEOUT, TimeUnit.SECONDS))
                 .build();
 
-        HttpClient httpClient = HttpClientBuilder.create()
+
+        CloseableHttpClient httpClient = HttpClientBuilder.create()
                 .setConnectionManager(connectionManager)
                 .setDefaultRequestConfig(requestConfig)
                 .build();
 
         ClientHttpRequestFactory requestFactory = new HttpComponentsClientHttpRequestFactory(httpClient);
         return new RestTemplate(requestFactory);
-    }*/
+    }
 
 }

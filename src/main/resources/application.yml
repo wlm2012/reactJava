@@ -61,3 +61,8 @@ amap:
 #  secretKey: ENC(02QEmmLqfsc8IoY5glhMg13xVKLyvagGB3k2MZ3LRN9MRXTVJr4KIQjKCYsVXtc7XOpn4Gy2jowrdJ6xuqN7CHQ1g1WmDAHES8x8E9OBPI8=)
 #  wenXinErnieSpeed128kUrl: https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/ernie-speed-128k
 #  wenXinErnieSpeedUrl: https://aip.baidubce.com/rpc/2.0/ai_custom/v1/wenxinworkshop/chat/ernie_speed
+
+hefeng:
+  privateKey: MC4CAQAwBQYDK2VwBCIEIDoHJhTe17hUBF5yaG6lFrrP2/G5tmICKhVJWIuihTSf
+  kid: K7B7YR3UW3
+  sub: 278AWW59M5
