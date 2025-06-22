@@ -42,7 +42,7 @@ public class SchedulingTaskManageServiceImpl {
     /**
      * 删除定时任务
      */
-    private void stopSchedulingTask(Long key) {
+    public void stopSchedulingTask(Long key) {
         if (!cacheMap.containsKey(key)) {
             log.info(".......当前key【{}】没有定时任务......", key);
             return;
@@ -65,7 +65,7 @@ public class SchedulingTaskManageServiceImpl {
      * @param runnable 当前线程
      * @param cron     定时任务cron
      */
-    private void createSchedulingTask(Long key, Runnable runnable, String cron) {
+    public void createSchedulingTask(Long key, Runnable runnable, String cron) {
         ScheduledFuture<?> schedule = threadPoolTaskScheduler.schedule(runnable, new CronTrigger(cron));
         if (Objects.isNull(schedule)) {
             log.info("创建任务失败，{}", key);

@@ -17,9 +17,9 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class BaseEntity {
 
-    @Column(columnDefinition = "datetime not null default current_timestamp comment '创建时间'")
+    @Column(insertable = false, updatable = false, columnDefinition = "datetime not null default current_timestamp comment '创建时间'")
     private LocalDateTime createTime;
 
-    @Column(columnDefinition = "datetime not null default current_timestamp on update current_timestamp comment '更新时间'")
+    @Column(insertable = false, updatable = false, columnDefinition = "datetime not null default current_timestamp on update current_timestamp comment '更新时间'")
     private LocalDateTime updateTime;
 }

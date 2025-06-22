@@ -1,10 +1,12 @@
 package com.study.reactJava.adapter.controller;
 
 import com.study.reactJava.application.service.impl.CurrencyPushServiceImpl;
+import com.study.reactJava.application.service.impl.SchedulingTaskManageServiceImpl;
 import com.study.reactJava.application.service.impl.WeatherServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +20,8 @@ public class PushController {
 
     private final WeatherServiceImpl weatherService;
 
+    private final SchedulingTaskManageServiceImpl schedulingTaskManageService;
+
     @GetMapping("/pushCurrency")
     public void pushCurrency() {
         currencyPushService.push();
@@ -27,5 +31,11 @@ public class PushController {
     public void pushWeather() {
         weatherService.push();
     }
+
+    @PostMapping("/creatTask")
+    public void createTask() {
+//        schedulingTaskManageService.createSchedulingTask();
+    }
+
 
 }

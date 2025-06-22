@@ -6,16 +6,18 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Table(name = "ebook")
 @Comment("电子书表")
-@Builder
+@SuperBuilder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class EbookEntity {
+public class EbookEntity extends BaseEntity {
 
     @Id
     @SnowflakeId

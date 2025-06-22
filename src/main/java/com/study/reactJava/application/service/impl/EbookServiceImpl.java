@@ -1,6 +1,7 @@
 package com.study.reactJava.application.service.impl;
 
 
+import com.study.reactJava.application.dto.request.EbookAddReq;
 import com.study.reactJava.application.dto.response.EbookVO;
 import com.study.reactJava.application.mapstruct.EbookMapper;
 import com.study.reactJava.domain.entity.EbookEntity;
@@ -48,5 +49,9 @@ public class EbookServiceImpl {
         }
         ebookRepository.saveAll(ebookEntities);
         return CompletableFuture.completedFuture(null);
+    }
+
+    public void addEbook(EbookAddReq ebookAddReq) {
+        ebookRepository.save(ebookMapper.from(ebookAddReq));
     }
 }
